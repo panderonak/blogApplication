@@ -9,7 +9,8 @@ A responsive and feature-rich blog application. It's built with **React** for th
 3. [Getting Started](#getting-started)
 4. [AppWrite Configuration](#appwrite-configuration)
 5. [Deployment](#deployment)
-6. [Contributing](#contributing)
+6. [Future Improvements](#future-improvements)
+7. [Contributing](#contributing)
 
 ---
 
@@ -76,6 +77,14 @@ For production deployment, you can deploy the build directory to any static host
 - **Vercel** (Great for fast and easy deployments)
 
 For more detailed deployment instructions, refer to the documentation for your chosen hosting platform.
+
+## Future Improvements
+
+I’m actively working on improving this project, and I plan to add new features in the future. While I’m still exploring potential enhancements, here are some ideas I might pursue:
+
+- Enhancing the user experience
+- Adding more customization options
+- Improving scalability and performance
 
 ## Contributing
 
