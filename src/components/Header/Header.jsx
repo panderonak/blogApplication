@@ -39,22 +39,22 @@ function Header() {
   console.log(navItems);
 
   return (
-    <header className="py-3 shadow bg-gray-500">
+    <header className="py-3 shadow bg-[#4C1036] text-[#C6D8FF]">
       <Container>
-        <nav className="flex">
-          <div className="mr-4">
+        <nav className="flex items-center">
+          <div className="mr-10">
             <Link to="/">
               <Logo width="70px" />
             </Link>
           </div>
 
-          <ul className="flex bg-green-600">
+          <ul className="flex">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-bock px-6 py-2 duration-200 hover:bg-blue-800 rounded-full"
+                    className="inline-bock px-6 py-2 duration-200 hover:bg-[#72195A] rounded-full"
                   >
                     {item.name}
                   </button>
@@ -62,7 +62,7 @@ function Header() {
               ) : null
             )}
             {authStatus && (
-              <li className="bg-red-900">
+              <li className="">
                 <LogoutButton />
               </li>
             )}

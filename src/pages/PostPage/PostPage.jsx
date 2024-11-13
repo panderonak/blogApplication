@@ -62,9 +62,11 @@ export default function PostPage() {
           )}
         </div>
         <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.Title}</h1>
+          <h1 className="text-4xl font-bold text-center mt-20 mb-10">
+            {post.Title}
+          </h1>
         </div>
-        <div className="browser-css">{parse(post.Content)}</div>
+        <div className="browser-css text-2xl">{parse(post.Content)}</div>
       </Container>
     </div>
   ) : null;
