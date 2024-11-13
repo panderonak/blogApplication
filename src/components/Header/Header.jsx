@@ -39,7 +39,7 @@ function Header() {
   console.log(navItems);
 
   return (
-    <header className="py-3 shadow bg-[#4C1036] text-[#C6D8FF]">
+    <header className="py-5 shadow bg-[#4C1036] text-[#C6D8FF]">
       <Container>
         <nav className="flex items-center">
           <div className="mr-10">
@@ -48,7 +48,7 @@ function Header() {
             </Link>
           </div>
 
-          <ul className="flex">
+          <ul className="flex text-[#C6D8FF] text-lg font-extrabold">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
