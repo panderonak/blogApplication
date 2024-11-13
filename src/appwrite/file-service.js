@@ -39,8 +39,8 @@ export class FileService {
     }
   }
 
-  getFilePreview(fileID) {
-    return this.storage.getFilePreview(config.appwrite_BucketID, fileID);
+  getFilePreview(fileId) {
+    return this.storage.getFilePreview(config.appwrite_BucketID, fileId);
   }
 }
 

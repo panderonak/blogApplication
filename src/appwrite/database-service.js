@@ -17,12 +17,20 @@ export class DatabaseService {
   }
 
   async createPost({ title, slug, content, featuredImage, status, userID }) {
+    console.log(title);
     try {
+      console.log("Inside the creation of post.");
       return await this.databases.createDocument(
         config.appwrite_DatabaseID,
         config.appwrite_Collection_ID,
         slug,
-        { title, content, featuredImage, status, userID }
+        {
+          Title: title,
+          Content: content,
+          FeaturedImage: featuredImage,
+          Status: status,
+          User_ID: userID,
+        }
       );
     } catch (error) {
       console.log("Appwrite service :: createPost :: error", error);
@@ -35,7 +43,12 @@ export class DatabaseService {
         config.appwrite_DatabaseID,
         config.appwrite_Collection_ID,
         slug,
-        { title, content, featuredImage, status }
+        {
+          Title: title,
+          Content: content,
+          FeaturedImage: featuredImage,
+          Status: status,
+        }
       );
     } catch (error) {
       console.log("Appwrite service :: updatePost :: error", error);
@@ -58,26 +71,25 @@ export class DatabaseService {
 
   async getPost(slug) {
     try {
-      await this.databases.getDocument(
+      return await this.databases.getDocument(
         config.appwrite_DatabaseID,
         config.appwrite_Collection_ID,
         slug
       );
-      return true;
     } catch (error) {
       console.log("Appwrite service :: getPost :: error", error);
       return false;
     }
   }
 
-  async getPosts(queries = [Query.equal("status", "active")]) {
+  async getPosts(queries = [Query.equal("Status", "active")]) {
     try {
-      await this.databases.listDocuments(
+      console.log("Get Posts.");
+      return await this.databases.listDocuments(
         config.appwrite_DatabaseID,
         config.appwrite_Collection_ID,
         queries
       );
-      return true;
     } catch (error) {
       console.log("Appwrite service :: getPosts :: error", error);
       return false;

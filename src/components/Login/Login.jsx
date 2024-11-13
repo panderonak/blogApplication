@@ -7,12 +7,13 @@ import authService from "../../appwrite/auth-service";
 import { useForm } from "react-hook-form";
 
 function Login() {
-  const navigate = useNavigate;
-  const dispatch = useDispatch;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
 
   const handleLogin = async (data) => {
+    console.log("handle login");
     setError("");
     try {
       const session = await authService.login(data);
@@ -79,7 +80,9 @@ function Login() {
                 },
               })}
             />
-            <Button type="submit" children="Sign In" className="w-full" />
+            <Button type="submit" className="w-full p-20 font-mono">
+              Sign in
+            </Button>
           </div>
         </form>
       </div>
