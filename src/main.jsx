@@ -145,16 +145,3 @@ createRoot(document.getElementById("root")).render(
     </StrictMode>
   </Provider>
 );
-
-src / components / Header / LogoutButton.jsx;
-src / components / Login / Login.jsx;
-src / components / PostCard / PostCard.jsx;
-src / components / PostForm / PostForm.jsx;
-src / components / Signup / Signup.jsx;
-src / index.css;
-src / main.jsx;
-src / pages / AllPostPage / AllPostPage.jsx;
-src / pages / HomePage / HomePage.jsx;
-src / pages / LoginPage / LoginPage.jsx;
-src / pages / SignupPage / SignupPage.jsx;
-src / store / store.js;
