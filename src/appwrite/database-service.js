@@ -1,10 +1,9 @@
 import config from "../config/config";
-import { Client, Databases, Storage, Query } from "appwrite";
+import { Client, Databases, Query } from "appwrite";
 
 export class DatabaseService {
   client = new Client();
   databases;
-  storage;
 
   constructor() {
     this.client
@@ -12,8 +11,6 @@ export class DatabaseService {
       .setProject(config.appwrite_ProjectID);
 
     this.databases = new Databases(this.client);
-
-    this.storage = new Storage(this.client);
   }
 
   async createPost({ title, slug, content, featuredImage, status, userID }) {
@@ -85,6 +82,7 @@ export class DatabaseService {
   async getPosts(queries = [Query.equal("Status", "active")]) {
     try {
       console.log("Get Posts.");
+      // console.log("Get Posts.", new Error().stack);
       return await this.databases.listDocuments(
         config.appwrite_DatabaseID,
         config.appwrite_Collection_ID,
