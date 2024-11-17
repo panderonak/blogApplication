@@ -2,7 +2,7 @@ import { Login } from "../../components";
 
 function LoginPage() {
   return (
-    <div className="py-8">
+    <div className="py-5 w-full h-screen flex justify-center  items-center">
       <Login />
     </div>
   );

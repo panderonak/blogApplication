@@ -11,6 +11,8 @@ function LogoutButton() {
     authService.logout().then(() => {
       dispatch(logout());
     });
+    // dispatch(clearAllPosts());
+
     navigate("/");
   };
   return (

@@ -3,8 +3,8 @@ import fileService from "../../appwrite/file-service";
 
 function PostCard({ $id, Title, FeaturedImage }) {
   return (
-    <Link to={`all-posts/post/${$id}`}>
-      <div className="w-full bg-[#C6D8FF] rounded-xl p-4 border-[#222222] border-2">
+    <Link to={`/post/${$id}`}>
+      <div className="w-full bg-[#C6D8FF] rounded-xl p-4 border-[#222222] border-2 cursor-pointer custom-cursor">
         <div className="w-full justify-center mb-4">
           <img
             src={fileService.getFilePreview(FeaturedImage)}

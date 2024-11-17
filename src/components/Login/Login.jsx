@@ -13,7 +13,7 @@ function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = async (data) => {
-    console.log("handle login");
+    console.log("handle login", data);
     setError("");
     try {
       const session = await authService.login(data);
@@ -26,6 +26,7 @@ function Login() {
       setError(error.message);
     }
   };
+
   return (
     <div className="flex items-center justify-center w-full">
       <div
@@ -49,38 +50,30 @@ function Login() {
           </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-
-        <form className="mt-8" onSubmit={handleSubmit(handleLogin)}>
+        <form onSubmit={handleSubmit(handleLogin)} className="mt-8">
           <div className="space-y-5">
             <Input
-              label="Email:"
+              label="Email: "
               placeholder="Enter your email"
               type="email"
               {...register("email", {
                 required: true,
                 validate: {
-                  matchPattern: (value) =>
+                  matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid address",
                 },
               })}
             />
             <Input
-              label="Password"
-              placeholder="Enter your Password"
+              label="Password: "
               type="password"
+              placeholder="Enter your password"
               {...register("password", {
                 required: true,
-                validate: {
-                  matchPattern: (value) =>
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-                      value
-                    ) ||
-                    "Password must be at least 8 characters long, contain uppercase and lowercase letters, a number, and a special character",
-                },
               })}
             />
-            <Button type="submit" className="w-full p-20 font-mono">
+            <Button type="submit" className="w-full">
               Sign in
             </Button>
           </div>

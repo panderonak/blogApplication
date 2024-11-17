@@ -30,7 +30,7 @@ function PostForm({ post }) {
         : null;
 
       if (file) {
-        fileService.deleteFile(post.featuredImage);
+        fileService.deleteFile(post.FeaturedImage);
       }
       const databasePost = await databaseService.updatePost(post.$id, {
         ...data,
@@ -40,13 +40,12 @@ function PostForm({ post }) {
         navigate(`/`);
       }
     } else {
-      // const file = data.image[0] ? fileService.uploadFile(data.image[0]) : null;
-
       const file = await fileService.uploadFile(data.image[0]);
 
       if (file) {
         console.log(`New File:`);
         const fileId = file.$id;
+        console.log(data);
         data.featuredImage = fileId;
 
         const newDatabasePost = await databaseService.createPost({
