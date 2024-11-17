@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-cursor:hover {
+  cursor: url("src/public/assets/icons/custom-cursor.svg"), auto;
+}
