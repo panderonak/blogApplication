@@ -50,7 +50,11 @@ function Login() {
           </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(handleLogin)} className="mt-8">
+        <form
+          onSubmit={handleSubmit(handleLogin)}
+          className="mt-8"
+          method="POST"
+        >
           <div className="space-y-5">
             <Input
               label="Email: "
