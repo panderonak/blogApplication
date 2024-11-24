@@ -3,9 +3,10 @@ import databaseService from "../../appwrite/database-service";
 import { Container, PostCard } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllPosts } from "../../features/postSlice";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
-  // const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const authenticated = useSelector((state) => state.auth.status);
   const posts = useSelector((state) => state.posts.allPosts);
@@ -19,7 +20,7 @@ function HomePage() {
           dispatch(setAllPosts({ allPosts: allUserPosts }));
         }
       });
-  }, [posts]);
+  }, [posts, navigate]);
 
   if (!authenticated) {
     return (

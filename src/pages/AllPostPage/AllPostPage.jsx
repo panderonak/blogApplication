@@ -5,15 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAllPosts } from "../../features/postSlice";
 
 function AllPostPage() {
-  // const [posts, setPosts] = useState([]);
-  // const allPosts = useSelector((state) => state.posts.allPosts);
-
-  // useEffect(() => {
-  //   setPosts(allPosts);
-  // }, [allPosts]);
-
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.allPosts);
+
   const isFetchingData = useSelector((state) => state.posts.isFetching);
 
   useEffect(() => {

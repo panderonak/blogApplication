@@ -4,7 +4,8 @@ import { Button, Input, Select, RealTimeEditor } from "../../components/index";
 import databaseService from "../../appwrite/database-service";
 import fileService from "../../appwrite/file-service";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setAllPosts } from "../../features/postSlice";
 
 function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -18,7 +19,10 @@ function PostForm({ post }) {
     });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.auth.userData);
+  const allPosts = useSelector((state) => state.posts.allPosts);
+
   console.log(userData);
 
   const submitPost = async (data) => {
@@ -53,6 +57,7 @@ function PostForm({ post }) {
           userID: userData.$id,
         });
         if (newDatabasePost) {
+          dispatch(setAllPosts({ allPosts: [...allPosts, newDatabasePost] }));
           navigate(`post/${newDatabasePost.$id}`);
         }
       }
