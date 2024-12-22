@@ -36,16 +36,16 @@ function Signup() {
             <Logo width="100%" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+        <h2 className="mb-2 text-center text-2xl font-bold leading-tight">
           Sign up to create account
         </h2>
-        <p className="mt-2 text-center text-base text-black/60">
+        <p className="mb-5 text-center text-base text-black/60">
           Already have an account?&nbsp;
           <Link
             to="/login"
             className="font-medium text-primary transition-all duration-200 hover:underline"
           >
-            Sign In
+            Log In
           </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
@@ -53,29 +53,29 @@ function Signup() {
         <form method="POST" onSubmit={handleSubmit(createNewAccount)}>
           <div className="space-y-5">
             <Input
-              label="Full Name: "
-              placeholder="Enter your full name"
+              label="Full Name"
+              placeholder="Jane Doe"
               {...register("name", {
                 required: true,
               })}
             />
             <Input
-              label="Email: "
-              placeholder="Enter your email"
+              label="Email"
+              placeholder="janedoe@autopsy.com"
               type="email"
               {...register("email", {
                 required: true,
                 validate: {
-                  matchPatern: (value) =>
+                  matchPattern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                     "Email address must be a valid address",
                 },
               })}
             />
             <Input
-              label="Password: "
+              label="Password "
               type="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               {...register("password", {
                 required: true,
               })}

@@ -20,7 +20,7 @@ function Login() {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
-        navigate("/");
+        navigate("/all-posts");
       }
     } catch (error) {
       setError(error.message);
@@ -58,7 +58,7 @@ function Login() {
           <div className="space-y-5">
             <Input
               label="Email: "
-              placeholder="Enter your email"
+              placeholder="janedoe@autopsy.com"
               type="email"
               {...register("email", {
                 required: true,
@@ -72,7 +72,7 @@ function Login() {
             <Input
               label="Password: "
               type="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               {...register("password", {
                 required: true,
               })}
